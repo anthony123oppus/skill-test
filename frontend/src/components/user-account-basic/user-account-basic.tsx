@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Box, ListItemIcon, ListItemText, MenuItem, Paper, Typography } from '@mui/material';
-import { Block, CheckCircle, Edit, Email, Key, LockReset, Visibility } from '@mui/icons-material';
+import { Block, CheckCircle, Edit, Email, Delete, Key, LockReset, Visibility } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
@@ -71,6 +71,7 @@ export const UserAccountBasic = ({ data }: { data: UserAccountBasicDataProps }) 
     setState((prevState) => ({ ...prevState, isModalOpen: !prevState.isModalOpen }));
   };
   const onSave = async () => {
+
     try {
       setState((prevState) => ({ ...prevState, isSaving: !prevState.isSaving }));
       const { userId, menuAction } = state;
@@ -147,6 +148,18 @@ export const UserAccountBasic = ({ data }: { data: UserAccountBasicDataProps }) 
             <Edit fontSize='small' />
           </ListItemIcon>
           <ListItemText>Edit</ListItemText>
+        </MenuItem>,
+        <MenuItem
+          key={2}
+          onClick={() => {
+              closeMenu();
+              onMenuItemClick("DELETE_STUDENT", id);
+            }}
+        >
+          <ListItemIcon>
+            <Delete fontSize='small' />
+          </ListItemIcon>
+          <ListItemText>Delete</ListItemText>
         </MenuItem>
       ];
       return [

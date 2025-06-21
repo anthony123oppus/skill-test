@@ -27,6 +27,7 @@ export const ParentsInformation = () => {
           <Box key={field.id}>
             <TextField
               {...register(`${field.id}`)}
+              sx={{ width: '50%' }}
               error={Boolean(errors?.[field.id])}
               helperText={errors?.[field.id]?.message}
               label={field.name}

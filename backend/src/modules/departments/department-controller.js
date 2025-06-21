@@ -1,8 +1,15 @@
 const asyncHandler = require("express-async-handler");
-const { processGetAllDepartments, processAddNewDepartment, processGetDepartmentById, processUpdateDepartmentById, processDeleteDepartmentById } = require("./department-service");
+const { 
+    processGetAllDepartments, 
+    processAddNewDepartment, 
+    processGetDepartmentById, 
+    processUpdateDepartmentById, 
+    processDeleteDepartmentById 
+} = require("./department-service");
 
 const handleGetAllDepartments = asyncHandler(async (req, res) => {
     const departments = await processGetAllDepartments();
+    console.log("hello")
     res.json({ departments });
 });
 

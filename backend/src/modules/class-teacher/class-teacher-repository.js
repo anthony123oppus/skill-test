@@ -17,6 +17,7 @@ const getClassTeachers = async () => {
 
 const addClassTeacher = async (payload) => {
     const { className, section, teacher } = payload;
+
     const query = `
     INSERT INTO class_teachers (class_name, section_name, teacher_id)
     VALUES($1, $2, $3)

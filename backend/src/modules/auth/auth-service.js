@@ -241,6 +241,8 @@ const processResendEmailVerification = async (userId) => {
 const processResendPwdSetupLink = async (userId) => {
   try {
     const user = await findUserById(userId);
+
+    console.log(user, "user")
     if (!user) {
       throw new ApiError(404, USER_DOES_NOT_EXIST);
     }
@@ -268,6 +270,8 @@ const processResendPwdSetupLink = async (userId) => {
 const processPwdReset = async (userId) => {
   try {
     const user = await findUserById(userId);
+
+    console.log(user, "userss")
     if (!user) {
       throw new ApiError(404, USER_DOES_NOT_EXIST);
     }

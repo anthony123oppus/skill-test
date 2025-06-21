@@ -36,6 +36,7 @@ export const BasicInformation = () => {
         <Box>
           <TextField
             {...register('name')}
+            sx={{width : "50%"}}
             error={Boolean(errors.name)}
             helperText={errors.name?.message}
             label='Full Name'
@@ -46,6 +47,7 @@ export const BasicInformation = () => {
         <Box>
           <TextField
             {...register('phone')}
+            sx={{width : "50%"}}
             error={Boolean(errors.phone)}
             helperText={errors.phone?.message}
             label='Phone Number'
@@ -65,6 +67,7 @@ export const BasicInformation = () => {
         <Box>
           <TextField
             {...register('email')}
+            sx={{width : "50%"}}
             error={Boolean(errors.email)}
             helperText={errors.email?.message}
             label='Email'
@@ -87,6 +90,7 @@ export const BasicInformation = () => {
             control={control}
             render={({ field: { onChange, value }, fieldState: { error } }) => (
               <DatePicker
+              sx={{width : "50%"}}
                 label='Birth Date'
                 slotProps={{
                   textField: {
@@ -102,7 +106,7 @@ export const BasicInformation = () => {
             )}
           />
         </Box>
-        <FormControl size='small' sx={{ width: '150px' }} error={Boolean(errors.gender)}>
+        <FormControl size='small' sx={{ width: '50%' }} error={Boolean(errors.gender)}>
           <InputLabel id='gender' shrink>
             Gender
           </InputLabel>
@@ -112,6 +116,7 @@ export const BasicInformation = () => {
             render={({ field: { onChange, value }, fieldState: { error } }) => (
               <>
                 <Select
+                sx={{width : "100%"}}
                   label='Gender'
                   labelId='gender'
                   value={value}

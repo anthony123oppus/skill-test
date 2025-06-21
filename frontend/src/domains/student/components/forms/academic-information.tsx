@@ -36,7 +36,7 @@ export const AcademicInformation = () => {
         <Typography variant='body1'>Academic Information</Typography>
       </Box>
       <Stack sx={{ my: 2 }} spacing={2}>
-        <FormControl size='small' sx={{ width: '150px' }} error={Boolean(errors.class)}>
+        <FormControl size='small' sx={{ width: '50%' }} error={Boolean(errors.class)}>
           <InputLabel id='class' shrink>
             Class
           </InputLabel>
@@ -63,7 +63,7 @@ export const AcademicInformation = () => {
             )}
           />
         </FormControl>
-        <FormControl size='small' sx={{ width: '150px' }} error={Boolean(errors.section)}>
+        <FormControl size='small' sx={{ width: '50%'}} error={Boolean(errors.section)}>
           <InputLabel id='class' shrink>
             Section
           </InputLabel>
@@ -98,6 +98,7 @@ export const AcademicInformation = () => {
           <TextField
             {...register('roll')}
             error={Boolean(errors.roll)}
+            sx={{ width: '50%' }}
             helperText={errors.roll?.message}
             label='Roll'
             size='small'
@@ -110,6 +111,7 @@ export const AcademicInformation = () => {
             control={control}
             render={({ field: { onChange, value }, fieldState: { error } }) => (
               <DatePicker
+                sx={{ width: '50%' }}
                 label='Admission Date'
                 slotProps={{
                   textField: {

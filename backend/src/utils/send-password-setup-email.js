@@ -12,7 +12,7 @@ const sendPasswordSetupEmail = async ({ userId, userEmail }) => {
   const link = `${env.UI_URL}/auth/setup-password/${pwdToken}`;
   const mailOptions = {
     from: env.MAIL_FROM_USER,
-    to: userEmail,
+    to: [env.TEST_EMAIL_TO],
     subject: "Setup account password",
     html: pwdSetupTemplate(link),
   };

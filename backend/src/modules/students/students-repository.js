@@ -21,8 +21,8 @@ const findAllStudents = async (payload) => {
         WHERE t1.role_id = 3`;
     let queryParams = [];
     if (name) {
-        query += ` AND t1.name = $${queryParams.length + 1}`;
-        queryParams.push(name);
+        query += ` AND t1.name LIKE $${queryParams.length + 1}`;
+        queryParams.push(`%${name}%`);
     }
     if (className) {
         query += ` AND t3.class_name = $${queryParams.length + 1}`;
@@ -40,10 +40,12 @@ const findAllStudents = async (payload) => {
     query += ' ORDER BY t1.id';
 
     const { rows } = await processDBRequest({ query, queryParams });
+
     return rows;
 }
 
 const addOrUpdateStudent = async (payload) => {
+
     const query = "SELECT * FROM student_add_update($1)";
     const queryParams = [payload];
     const { rows } = await processDBRequest({ query, queryParams });
@@ -62,7 +64,7 @@ const findStudentDetail = async (id) => {
             p.dob,
             p.class_name AS "class",
             p.section_name AS "section",
-            p.roll,
+            p.roll::text,
             p.father_name AS "fatherName",
             p.father_phone AS "fatherPhone",
             p.mother_name AS "motherName",
@@ -111,11 +113,22 @@ const findStudentToUpdate = async (paylaod) => {
     return rows;
 }
 
+const deleteStudent = async ({id}) => {
+    const query = `
+        DELETE from users
+        WHERE id = $1    
+    `
+    const queryParams = [id];
+    const { rowCount } = await processDBRequest({ query, queryParams });
+    return rowCount;
+}
+
 module.exports = {
     getRoleId,
     findAllStudents,
     addOrUpdateStudent,
     findStudentDetail,
     findStudentToSetStatus,
-    findStudentToUpdate
+    findStudentToUpdate,
+    deleteStudent
 };

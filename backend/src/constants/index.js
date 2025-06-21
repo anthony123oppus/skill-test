@@ -5,7 +5,8 @@ const SAMPLE_API_KEY = '757532143557';
 const API_HEADERS = {
   "x-secret-header": "secret",
 };
-const API_URL = `https://${API_HOST}/api/${API_SUB_URL}/${SAMPLE_API_KEY}`;
+// const API_URL = `https://${API_HOST}/api/${API_SUB_URL}/${SAMPLE_API_KEY}`;
+const API_URL = `https://api.ipify.org?format=json`;
 
 module.exports = {
     ERROR_MESSAGES,

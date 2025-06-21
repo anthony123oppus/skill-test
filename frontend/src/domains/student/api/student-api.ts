@@ -51,6 +51,16 @@ export const studentApi = api.injectEndpoints({
       }),
       invalidatesTags: (_result, _error, { id }) => [{ type: Tag.STUDENTS, id }]
     }),
+    deleteStudent : builder.mutation<{ message: string }, {id : number}>({
+      query : ({id}) => ({
+        url : `/students/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: (_result, _error, { id }) => [
+        { type: Tag.STUDENTS, id },
+        { type: Tag.STUDENTS }
+      ]
+    }),
     getTeachers: builder.query<GetTeachers, void>({
       query: () => `/teachers`
     })
@@ -59,9 +69,11 @@ export const studentApi = api.injectEndpoints({
 
 export const {
   useGetStudentsQuery,
+  useGetStudentDetailQuery,
   useLazyGetStudentDetailQuery,
   useReviewStudentStatusMutation,
   useAddStudentMutation,
   useUpdateStudentMutation,
-  useGetTeachersQuery
+  useGetTeachersQuery,
+  useDeleteStudentMutation,
 } = studentApi;

@@ -14,6 +14,7 @@ type StudentProfileProps = {
 
 export const StudentProfile: React.FC<StudentProfileProps> = ({ id }) => {
   const student = useGetStudentDetail(id);
+
   const {
     name,
     email,

@@ -3,6 +3,7 @@ const { processDBRequest } = require("../../utils");
 const getAllDepartments = async () => {
     const query = "SELECT * FROM departments";
     const { rows } = await processDBRequest({ query });
+    console.log(rows, "hello wolrd")
     return rows;
 }
 

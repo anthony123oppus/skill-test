@@ -31,7 +31,7 @@ export const OtherInformation = () => {
       </Box>
       <Stack sx={{ my: 2 }} spacing={2}>
         <Box>
-          <FormControl size='small' sx={{ width: '250px' }} error={Boolean(errors?.reporterId)}>
+          <FormControl size='small' sx={{ width: '50%' }} error={Boolean(errors?.reporterId)}>
             <InputLabel id='role' shrink>
               Reports To
             </InputLabel>
