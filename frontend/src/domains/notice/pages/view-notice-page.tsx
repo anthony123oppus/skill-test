@@ -23,6 +23,7 @@ export const ViewNotice = () => {
   const toggleDeleteConfirmationModal = () => {
     setModalOpen(!modalOpen);
   };
+
   const onSave = async () => {
     try {
       const result = await deleteNotice({ id: Number(id), status: 3 }).unwrap();
@@ -34,6 +35,7 @@ export const ViewNotice = () => {
       toast.error(getErrorMsg(error as FetchBaseQueryError | SerializedError).message);
     }
   };
+  
   const closeModal = () => {
     setModalOpen(false);
   };
