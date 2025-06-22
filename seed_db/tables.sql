@@ -45,7 +45,7 @@ CREATE TABLE users(
 );
 
 CREATE TABLE user_profiles(
-    user_id INTEGER PRIMARY KEY REFERENCES users(id),
+    user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
     gender VARCHAR(10) DEFAULT NULL,
     marital_status VARCHAR(50) DEFAULT NULL,
     join_dt DATE DEFAULT NULL,

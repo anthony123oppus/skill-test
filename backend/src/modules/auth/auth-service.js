@@ -271,7 +271,6 @@ const processPwdReset = async (userId) => {
   try {
     const user = await findUserById(userId);
 
-    console.log(user, "userss")
     if (!user) {
       throw new ApiError(404, USER_DOES_NOT_EXIST);
     }
